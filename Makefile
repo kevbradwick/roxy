@@ -1,0 +1,3 @@
+.PHONT: fmt
+fmt:
+	go fmt ./...
