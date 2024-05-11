@@ -1,6 +1,7 @@
 package roxy
 
 import (
+	"fmt"
 	"io"
 	"log"
 	"net/http"
@@ -12,11 +13,7 @@ type Roxy struct {
 	cfg *Config
 }
 
-func (x *Roxy) handler(w http.ResponseWriter, r *http.Request) {
-
-}
-
-func (x *Roxy) Start() {
+func (x *Roxy) handler() http.HandlerFunc {
 	targetURL, err := url.Parse(x.cfg.Target)
 	if err != nil {
 		log.Fatal(err)
@@ -24,9 +21,7 @@ func (x *Roxy) Start() {
 
 	proxy := httputil.NewSingleHostReverseProxy(targetURL)
 
-	// A handler that will be called to handle the request
-	handler := func(w http.ResponseWriter, r *http.Request) {
-
+	return func(w http.ResponseWriter, r *http.Request) {
 		// intercept health check call
 		if r.URL.Path == x.cfg.HealthCheckPath {
 			io.WriteString(w, "OK")
@@ -46,11 +41,15 @@ func (x *Roxy) Start() {
 		proxy.ServeHTTP(w, r)
 	}
 
+}
+
+func (x *Roxy) Start() {
 	// Start the server on port 8080
 	// "handler" is now the proxy
-	http.HandleFunc("/", handler)
-	log.Println("Starting proxy server on localhost:8080...")
-	err = http.ListenAndServe(":8080", nil)
+	http.HandleFunc("/", x.handler())
+	address := fmt.Sprintf("%s:%s", x.cfg.Host, x.cfg.Port)
+	log.Printf("Starting proxy server on %s", address)
+	err := http.ListenAndServe(fmt.Sprintf(address), nil)
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
 	}
