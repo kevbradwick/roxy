@@ -40,7 +40,6 @@ func init() {
 	config.Port = envDefault("PORT", "9000")
 	config.Host = envDefault("HOST", "0.0.0.0")
 	config.Target = envRequired("TARGET")
-	config.HealthCheckPath = envDefault("HEALTHCHECK_PATH", "/__health__")
 	config.Email = envDefault("EMAIL", "support@example.com")
 }
 
