@@ -3,6 +3,7 @@ package roxy
 import (
 	"fmt"
 	"os"
+	"strings"
 )
 
 var config Config
@@ -41,6 +42,7 @@ func init() {
 	config.Host = envDefault("HOST", "0.0.0.0")
 	config.Target = envRequired("TARGET")
 	config.Email = envDefault("EMAIL", "support@example.com")
+	config.AllowList = strings.Split(envDefault("ALLOW_LIST", ""), ",")
 }
 
 func EnvConfig() *Config {

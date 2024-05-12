@@ -1,0 +1,7 @@
+.editorconfig
+.gitignore
+.vscode/
+.DS_Store
+compose.yml
+docker-compose.yml
+/roxy
