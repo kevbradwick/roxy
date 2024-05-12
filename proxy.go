@@ -4,10 +4,31 @@ import (
 	"fmt"
 	"io"
 	"log"
+	"math/rand"
 	"net/http"
 	"net/http/httputil"
 	"net/url"
+	"time"
 )
+
+const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+
+func generateRequestID(length int) string {
+	var seededRand *rand.Rand = rand.New(rand.NewSource(time.Now().UnixNano()))
+	b := make([]byte, length)
+	for i := range b {
+		b[i] = charset[seededRand.Intn(len(charset))]
+	}
+	return string(b)
+}
+
+func requestIdFromHeaders(set http.Header) string {
+
+	if requestID := set.Get("X-B3-TraceId"); requestID != "" {
+		return requestID
+	}
+	return generateRequestID(8)
+}
 
 type Roxy struct {
 	cfg *Config
@@ -27,6 +48,10 @@ func (x *Roxy) handler() http.HandlerFunc {
 			io.WriteString(w, "OK")
 			return
 		}
+
+		requestID := requestIdFromHeaders(r.Header)
+		log.Printf("[%s] Start\n", requestID)
+		log.Printf("[%s] Forwarded URL: %s", requestID, r.URL.Path)
 
 		// Update the headers to allow for SSL redirection
 		r.URL.Host = targetURL.Host
