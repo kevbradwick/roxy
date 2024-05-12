@@ -34,6 +34,11 @@ type Roxy struct {
 	cfg *Config
 }
 
+func (x *Roxy) accessDenied(w http.ResponseWriter, data *AccessDenied) {
+	w.Header().Set("Content-Type", "text/html")
+	accessDeniedTemplate.Execute(w, data)
+}
+
 func (x *Roxy) handler() http.HandlerFunc {
 	targetURL, err := url.Parse(x.cfg.Target)
 	if err != nil {
@@ -52,6 +57,9 @@ func (x *Roxy) handler() http.HandlerFunc {
 		requestID := requestIdFromHeaders(r.Header)
 		log.Printf("[%s] Start\n", requestID)
 		log.Printf("[%s] Forwarded URL: %s", requestID, r.URL.Path)
+
+		x.accessDenied(w, &AccessDenied{EmailName: x.cfg.EmailName, Email: x.cfg.Email, ForwardedURL: r.URL.Path, RequestID: requestID, ClientID: r.RemoteAddr})
+		return
 
 		// Update the headers to allow for SSL redirection
 		r.URL.Host = targetURL.Host

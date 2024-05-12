@@ -1,14 +1,22 @@
 package roxy
 
-import "embed"
+import (
+	"embed"
+	"html/template"
+)
 
 //go:embed templates/*
-var templates embed.FS
+var templatesFS embed.FS
+var accessDeniedTemplate *template.Template
+
+func init() {
+	accessDeniedTemplate = template.Must(template.ParseFS(templatesFS, "templates/access-denied.html"))
+}
 
 type AccessDenied struct {
 	EmailName    string
 	Email        string
 	RequestID    string
-	ClientIP     string
+	ClientID     string
 	ForwardedURL string
 }

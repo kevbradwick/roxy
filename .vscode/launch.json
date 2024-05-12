@@ -5,11 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch Package",
+            "name": "Run Program",
             "type": "go",
             "request": "launch",
             "mode": "auto",
-            "program": "${fileDirname}"
+            "program": "${workspaceFolder}/cmd/roxy.go",
+            "env": {
+              "TARGET": "https://www.bbc.co.uk"
+            }
         }
     ]
 }

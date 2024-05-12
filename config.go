@@ -12,6 +12,9 @@ type Config struct {
 	Host            string
 	Target          string
 	HealthCheckPath string
+	Email           string
+	EmailName       string
+	AllowList       []string
 }
 
 func envDefault(name, defaultValue string) string {
@@ -38,6 +41,7 @@ func init() {
 	config.Host = envDefault("HOST", "0.0.0.0")
 	config.Target = envRequired("TARGET")
 	config.HealthCheckPath = envDefault("HEALTHCHECK_PATH", "/__health__")
+	config.Email = envDefault("EMAIL", "support@example.com")
 }
 
 func EnvConfig() *Config {
