@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+
+<head class="govuk-template">
+  <meta charset="utf-8">
+  <title>Access denied</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="shortcut icon" type="image/png"
+    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABKVBMVEUAAAAQERESExMNDg4cHR0KCwsODw9PT09PUFAZGho0NTUMDQ0jJCQ+Pz8ODw8NDg4MDQ0MDQ0MDQ0MDQ0PEBAMDQ0LDAwLDAwODw8MDQ0LDAwNDg4MDQ0QEREMDQ0LDAwKCwsfICCOj4+fn5+foKCMjIwdHh4JCgopKirl5eX////k5OQoKSkmJyfe3t7d3d0kJSXc3NzW1tYhIiLZ2dnS0tIcHR3Pz88bGxsZGhrNzc3Mzc0YGRnKysrGxsYWFxfGx8e/v78TFBS/wMC7u7sREhK5ubm4uLgQEREPEBC2trazs7MODw+lpqby8vINDg42NzcnKCgUFRU9Pj4+Pz8VFhYeHx+oqanz8/OpqakICQlvcHBubm6Ki4tQUVFPUFBlZma+vr5mZmZCD/vkAAAAH3RSTlMAAAAAAAAAAAAAAAAAASVmptTt+zKR2/oWg+cxvj3WHbe35wAAAAFiS0dEKlO+1J4AAAAJcEhZcwAAFiUAABYlAUlSJPAAAAAHdElNRQfkBAQIKh6glGJQAAABkElEQVQ4y4WTZ1/CQAzGj0IZZbWUFsq6omA1ouIAxYWgqDgQF2Ldfv8PISD2cuhPnneX+7fJJU8IGckluMORqKzEVDWmyNFI2C24CJNH9Primp6gYyV0Le73ip6f+4AUTBopyillJINSYHwfEtMZ+kuZtBgaER5JzOboH8plRWmYRQym2b05ECPSQXFQvzfp/N/Mz8wWinMOkkl6XUTwG84n1vwCwGLJcgKGTyDuOKvfWloGWCkzIBV3k7DGyrLKqwBreVYF1cIkorOjub4BUKkiQI+QaAIB1QrA5hYCElEio5ebtW2AnRoCqEwUDOzuAezXMaCQGAbqBwCNJm5njKj42DwEOGrhiMoDrWOAk1MewClo+wzgvM2nwEXSi8tOp3CFIwr3TEpL3e41F5C5RlHz5vbuHr9y0Ciu1b2Hfv+xx7caD8t+goGebW5YeNx2cQi8MGA4bsHHDGO/dgA6bwww/AJnOdp+/2h8sj6MLMeb1mo2mZ++TTthe2zqse2nLs701Rstr39yeX1oef9d/y9Ev3QTGI7fawAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMC0wNC0wNFQwNzowNjo1MiswMDowMJ7XTsUAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjAtMDQtMDRUMDc6MDY6NTIrMDA6MDDvivZ5AAAAAElFTkSuQmCC">
+  <style>
+    /* Minimal set of GDS-inspired styles and class names */
+    .govuk-template {
+      overflow-y: scroll;
+      text-size-adjust: 100%;
+    }
+
+    .govuk-template__body {
+      margin: 0;
+      background-color: #ffffff;
+    }
+
+    .govuk-width-container {
+      display: block;
+      max-width: 960px;
+      margin: 0 15px;
+    }
+
+    @media (min-width: 40.0625em) {
+      .govuk-width-container {
+        margin: 0 30px;
+      }
+    }
+
+    @supports (margin: max(calc(0px))) {
+      .govuk-width-container {
+        margin-right: max(15px, calc(15px + env(safe-area-inset-right)));
+        margin-left: max(15px, calc(15px + env(safe-area-inset-left)));
+      }
+
+      @media (min-width: 40.0625em) {
+        .govuk-width-container {
+          margin-right: max(30px, calc(15px + env(safe-area-inset-right)));
+          margin-left: max(30px, calc(15px + env(safe-area-inset-left)));
+        }
+      }
+    }
+
+    @media (min-width: 1020px) {
+      .govuk-width-container {
+        margin: 0 auto;
+      }
+    }
+
+    .govuk-main-wrapper {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    @media (min-width: 40.0625em) {
+      .govuk-main-wrapper {
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+    }
+
+    .govuk-header {
+      display: block;
+      background: #0b0c0c;
+      border-bottom: 10px solid #ffffff;
+    }
+
+    .govuk-header__container {
+      display: block;
+      padding-top: 20px;
+      /* GDS is 10px */
+      border-bottom: 10px solid #1d70b8;
+      margin-bottom: -10px;
+    }
+
+    @media (min-width: 40.0625em) {
+      .govuk-header__container {
+        padding-top: 30px;
+      }
+    }
+
+    .govuk-grid-row {
+      margin-right: -15px;
+      margin-left: -15px;
+    }
+
+    .govuk-grid-column-two-thirds {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 0 15px;
+    }
+
+    @media (min-width: 40.0625em) {
+      .govuk-grid-column-two-thirds {
+        width: 66.6666%;
+        float: left;
+      }
+    }
+
+    .govuk-heading-xl,
+    .govuk-body,
+    .govuk-summary-list {
+      font-family: "Helvetica Neue", Helvetica, "Open Sans", Arial, sans-serif;
+      color: #0b0c0c;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .govuk-heading-xl {
+      display: block;
+      font-weight: 700;
+      margin-top: 0;
+      margin-bottom: 30px;
+    }
+
+    @media (min-width: 40.0625em) {
+      .govuk-heading-xl {
+        font-size: 48px;
+        font-size: 3rem;
+        line-height: 1.04167;
+        margin-bottom: 50px;
+      }
+    }
+
+    .govuk-body {
+      font-weight: 400;
+      font-size: 16px;
+      font-size: 1rem;
+      line-height: 1.25;
+      display: block;
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+
+    @media (min-width: 40.0625em) {
+      .govuk-body {
+        font-size: 19px;
+        font-size: 1.1875rem;
+        line-height: 1.31579;
+        margin-bottom: 20px;
+      }
+    }
+
+    /* Styled identically if visited */
+    .govuk-link:link,
+    .govuk-link:visited
+    {
+    color: #1d70b8;
+    }
+
+    .govuk-link:hover {
+      color: #003078;
+    }
+
+    .govuk-link:active,
+    .govuk-link:focus {
+      color: #0b0c0c;
+    }
+
+    .govuk-link:focus {
+      outline: 3px solid rgba(0, 0, 0, 0);
+      background-color: #fd0;
+      box-shadow: 0 -2px #fd0, 0 4px #0b0c0c;
+      text-decoration: none;
+    }
+
+    /* Unlike GDS, the summary list is always vertical, since the values can
+       be long, e.g. with URLs */
+    .govuk-summary-list {
+      font-weight: 400;
+      font-size: 16px;
+      font-size: 1rem;
+      line-height: 1.25;
+      margin: 0 0 20px;
+    }
+
+    @media (min-width: 40.0625em) {
+      .govuk-summary-list {
+        font-size: 19px;
+        font-size: 1.1875rem;
+        line-height: 1.31579;
+        margin-bottom: 30px;
+      }
+    }
+
+    .govuk-summary-list__row {
+      margin-bottom: 15px;
+      /* Appears reasonable on both mobile and desktop */
+      border-bottom: 1px solid #b1b4b6;
+    }
+
+    .govuk-summary-list__key,
+    .govuk-summary-list__value {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      margin: 0;
+    }
+
+    .govuk-summary-list__key {
+      margin-bottom: 5px;
+      font-weight: 700;
+    }
+
+    .govuk-summary-list__value {
+      margin-bottom: 15px;
+      /* Appears reasonable on both mobile and desktop */
+    }
+  </style>
+</head>
+
+<body class="govuk-template__body">
+  <header class="govuk-header">
+    <div class="govuk-header__container govuk-width-container"></div>
+  </header>
+  <main class="govuk-width-container govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">You are not allowed to access this page</h1>
+
+        <p class="govuk-body">You do not appear to be on a trusted network.</p>
+
+        <p class="govuk-body">See the Digital Workspace page <a class="govuk-link"
+            href="https://workspace.trade.gov.uk/working-at-dit/how-do-i/gain-access-to-a-trusted-network">gain access
+            to a trusted network</a> for more information.</p>
+
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Request ID: </dt>
+            <dd class="govuk-summary-list__value">{{.RequestID}}</dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">IP</dt>
+            <dd class="govuk-summary-list__value">{{.ClientID}}</dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">URL</dt>
+            <dd class="govuk-summary-list__value">{{.ForwardedURL}}</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>
